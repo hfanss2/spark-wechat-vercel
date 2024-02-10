@@ -156,16 +156,11 @@ module.exports = async function (request, response) {
   }
    if (MsgType === 'voice') {
        console.log('用户发送了语音信息，提前返回');
-     console.log("打印常量｛FromUserName:" + FromUserName+";ToUserName:"+ToUserName+";timeNow:"+timeNow);
-      resolve(
-        formatReply(
-          FromUserName,
-          ToUserName,
-          timeNow,
-          '哎哟，语音信息暂时不支持哟，请重新发送文字消息！'
-        )
-      );
-      return;
+      return new Promise((resolve) => {
+      resolve(formatReply
+              (FromUserName,ToUserName,timeNow,'哎哟，语音信息暂时不支持哟，请重新发送文字消息！')
+             )
+        })
    }
 
   if (userHasAnswerIng[FromUserName]) {

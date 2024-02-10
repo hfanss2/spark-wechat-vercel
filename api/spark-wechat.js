@@ -154,13 +154,25 @@ module.exports = async function (request, response) {
       return response.status(200).send('');
     }
   }
+   if (MsgType === 'voice') {
+       console.log('用户发送了语音信息，提前返回');
+      resolve(
+        formatReply(
+          FromUserName,
+          ToUserName,
+          timeNow,
+          '哎哟，语音信息暂时不支持哟，请重新发送文字消息！'
+        )
+      );
+      return;
+   }
 
   if (userHasAnswerIng[FromUserName]) {
     response.status(200).send(formatReply(
       FromUserName,
       ToUserName,
       timeNow,
-      '微信规定要在5s内回复，但是本次需要回复的内容很长，现在还没整理好，所以你暂时看到了这条消息。请稍后回复任意文字尝试获取回复。比如数字 1。'
+      '哎哟，问的问题有点深度哟！！请等我思考一下，稍后回复任意文字尝试获取回复。比如数字 1。'
     ));
     return;
   }
@@ -246,7 +258,7 @@ module.exports = async function (request, response) {
           FromUserName,
           ToUserName,
           timeNow,
-          '微信规定要在5s内回复，但是我正在思考中，所以你暂时看到了这条消息。请稍后回复任意文字尝试获取回复。比如数字 1。'
+          '哎哟，问的问题有点深度哟！！请等我思考一下，稍后回复任意文字尝试获取回复。比如数字 1。'
         )
       );
     }, 4000);

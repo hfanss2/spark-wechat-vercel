@@ -145,19 +145,19 @@ module.exports = async function (request, response) {
     }
     if (Object.hasOwnProperty.call(statsNames, Content)) {
       //用户发送了特定字符
-     if(statsNames[Content]=== '郭聪' || Content.includes('郭聪'))
+     if(statsNames[Content]=== '郭聪' || Content.search('郭聪') != -1 )
      {
         resSt = '郭聪是个大美女，现在就读于淅川县第五高级中学高二年级，人见人爱，花见花开，车见车爆胎，沉鱼落雁，闭月羞花，跟芙蓉姐姐有的一拼 /:,@P /:,@P'
-     }else  if(statsNames[Content]=== '郭甜' || Content.includes('郭聪'))
+     }else  if(statsNames[Content]=== '郭甜' || Content.search('郭甜') != -1 )
      {
        resSt = '郭甜很可爱，现在就读于淅川县第五高级中学高一年级，是凤姐的头号粉丝，羁傲不逊的眼镜代表着她的态度，向天再接五百年，她一定会好好学习考上淅川一高 /:,@P /:,@P'
-     }else if(statsNames[Content]=== '周坤'  || Content.includes('郭聪'))
+     }else if(statsNames[Content]=== '周坤'  || Content.search('周坤') != -1 )
      {
        resSt = '哇，你问我的老板？我老板可帅了，比肩刘德华，帅比吴彦祖 /:,@P /:,@P'
-     }else if(statsNames[Content]=== '刘晓芳'  || Content.includes('郭聪'))
+     }else if(statsNames[Content]=== '刘晓芳'  || Content.search('刘晓芳') != -1 )
      {
        resSt = '她是老板娘啦，沉鱼落雁闭月羞花，那是你高攀不起的人，不要瞎打听了  /:,@P /:,@P'
-     }else if(statsNames[Content]=== '林秀娟'  || Content.includes('林秀娟'))
+     }else if(statsNames[Content]=== '林秀娟'  || Content.search('刘晓芳') != -1 )
      {
        resSt = '听说她想找男朋友，5555   可以上清华大学看一看，那里很多优秀小伙子  /:,@P /:,@P'
      }else

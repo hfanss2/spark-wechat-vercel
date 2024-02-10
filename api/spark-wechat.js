@@ -11,7 +11,20 @@ let userChatHistory = {};
 let userLastChatTime = {};
 let userStashMsg = {};
 let userHasAnswerIng = {};
-
+const statsNames = {
+  "郭聪": "郭聪",
+  "郭甜": "郭甜",
+  "刘晓芳": "刘晓芳",
+  "周坤": "周坤",
+  "周娟": "周娟",
+  "周阳": "周阳",
+  "周建": "周建",
+  "周林": "周林",
+  "周振": "周振",
+  "周士杰": "周士杰",
+  "周岚": "周岚",
+  "周家人": "周家人"
+}
 const emojiObj = {
   "/::)": "微笑",
   "/::~": "伤心",
@@ -125,6 +138,33 @@ module.exports = async function (request, response) {
       //用户发送了微信自带表情
       Content = '给你一个表情：' + emojiObj[Content] + '，你自己体会'
     }
+    if (Object.hasOwnProperty.call(statsNames, Content)) {
+      //用户发送了特定字符
+     if(statsNames[Content]=== '郭聪')
+     {
+        resSt = '郭聪是个大美女，现在就读于淅川县第五高级中学高二年级，人见人爱，花见花开，车见车爆胎，沉鱼落雁，闭月羞花，跟芙蓉姐姐有的一拼 /:,@P /:,@P'
+     }else  if(statsNames[Content]=== '郭甜')
+     {
+       resSt = '郭甜很可爱，现在就读于淅川县第五高级中学高一年级，是凤姐的头号粉丝，羁傲不逊的眼镜代表着她的态度，向天再接五百年，她一定会好好学习考上淅川一高 /:,@P /:,@P'
+     }else if(statsNames[Content]=== '周坤')
+     {
+       resSt = '哇，你问我的老板？我老板可帅了，比肩刘德华，帅比吴彦祖 /:,@P /:,@P'
+     }else if(statsNames[Content]=== '刘晓芳')
+     {
+       resSt = '她是老板娘啦，沉鱼落雁闭月羞花，那是你高攀不起的人，不要瞎打听了  /:,@P /:,@P'
+     }else
+     {
+       resSt = '想必你就是老板的亲戚吧，你想问什么，直接问老板吧，不会没有他微信吧，瞅你那损样  WX:hfanss9064 /:,@P /:,@P'
+     }
+       response.status(200).send(formatReply(
+            FromUserName,
+            ToUserName,
+            timeNow,
+            resSt
+        ));
+        return;
+    }
+    
     console.log("关键词配置：", keywordAutoReply, "文本内容：" + Content, "匹配结果：", Object.hasOwnProperty.call(keywordAutoReply, Content));
     if (Object.hasOwnProperty.call(keywordAutoReply, Content)) {
       //关键词自动回复

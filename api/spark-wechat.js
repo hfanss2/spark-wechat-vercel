@@ -123,7 +123,7 @@ module.exports = async function (request, response) {
     console.log("收到文本消息：" + Content)
     if (Object.hasOwnProperty.call(emojiObj, Content)) {
       //用户发送了微信自带表情
-      Content = '我发送了表情：' + emojiObj[Content] + '，现在你要怎么做'
+      Content = '给你一个表情：' + emojiObj[Content] + '，你自己体会'
     }
     console.log("关键词配置：", keywordAutoReply, "文本内容：" + Content, "匹配结果：", Object.hasOwnProperty.call(keywordAutoReply, Content));
     if (Object.hasOwnProperty.call(keywordAutoReply, Content)) {

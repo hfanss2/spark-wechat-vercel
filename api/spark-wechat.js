@@ -161,7 +161,7 @@ module.exports = async function (request, response) {
             FromUserName,
             ToUserName,
             timeNow,
-            '哎哟，语音信息暂时不支持哟，请重新发送文字消息！'
+            '哎哟，语音信息暂时不支持哟，请重新发送文字消息！/::Q'
         ));
         return;
    }

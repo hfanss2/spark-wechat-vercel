@@ -100,6 +100,7 @@ const emojiObj = {
   "/:strong": "点赞"
 };
 const keywordAutoReply = JSON.parse(process.env.KEYWORD_REPLAY);
+const resSt = '0'
 module.exports = async function (request, response) {
   const method = request.method;
   const timestamp = request.query.timestamp;

@@ -138,6 +138,10 @@ module.exports = async function (request, response) {
       //用户发送了微信自带表情
       Content = '给你一个表情：' + emojiObj[Content] + '，你自己体会'
     }
+    if(isName(Content))
+    {
+      Content = '搜索一下全国最出名的名字叫' + Content + '的生平简历'
+    }
     if (Object.hasOwnProperty.call(statsNames, Content)) {
       //用户发送了特定字符
      if(statsNames[Content]=== '郭聪')
@@ -376,4 +380,9 @@ function hmacWithShaTobase64(algorithm, data, key) {
   hmac.update(data);
   const encodeData = hmac.digest();
   return Buffer.from(encodeData).toString('base64');
+}
+
+function isName(text) {
+  const regex = /^[a-zA-Z\u4e00-\u9fa5]+( [a-zA-Z\u4e00-\u9fa5]+)+$/;
+  return regex.test(text);
 }

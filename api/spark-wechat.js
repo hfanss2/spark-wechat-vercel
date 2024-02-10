@@ -140,7 +140,7 @@ module.exports = async function (request, response) {
     }
     if(isName(Content))
     {
-      Content = '搜索一下全国最出名的名字叫' + Content + '的生平简历'
+      Content = '搜索全国最出名的名字叫' + Content + '的生平简历，用50个字来形容'
     }
     if (Object.hasOwnProperty.call(statsNames, Content)) {
       //用户发送了特定字符

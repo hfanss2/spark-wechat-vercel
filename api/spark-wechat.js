@@ -82,7 +82,8 @@ const emojiObj = {
   "/:heart": "爱心",
   "/:break": "心裂开了",
   "/:cake": "蛋糕",
-  "/:li": "闪电劈你"
+  "/:li": "闪电劈你",
+  "/:party": "烟花"
 };
 const keywordAutoReply = JSON.parse(process.env.KEYWORD_REPLAY);
 module.exports = async function (request, response) {
